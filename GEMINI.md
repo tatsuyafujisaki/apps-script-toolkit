@@ -1,0 +1,1 @@
+- Read https://github.com/googleworkspace/apps-script-samples
