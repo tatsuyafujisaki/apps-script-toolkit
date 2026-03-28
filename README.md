@@ -5,3 +5,9 @@
 ```shell
 curl --location https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Node.gitignore --output .gitignore
 ```
+
+## How to convert JavaScript files to TypeScript files
+
+```shell
+npx tsc
+```

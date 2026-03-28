@@ -1,7 +1,7 @@
 function conditionalFormat_(
-  formula,
-  color,
-  sheet = SpreadsheetApp.getActiveSheet(),
+  formula: string,
+  color: string,
+  sheet: GoogleAppsScript.Spreadsheet.Sheet = SpreadsheetApp.getActiveSheet(),
 ) {
   const rules = sheet.getConditionalFormatRules();
   rules.push(

@@ -1,7 +1,7 @@
 function fillDaysInColumnA_(
-  year,
-  month,
-  sheet = SpreadsheetApp.getActiveSheet(),
+  year: number,
+  month: number,
+  sheet: GoogleAppsScript.Spreadsheet.Sheet = SpreadsheetApp.getActiveSheet(),
 ) {
   const daysInMonth = new Date(year, month, 0).getDate();
 
@@ -15,10 +15,14 @@ function fillDaysInColumnA_(
     .setNumberFormat('yyyy年m月d日(ddd)');
 }
 
-function colorSaturdayRowsInBlue_(sheet = SpreadsheetApp.getActiveSheet()) {
+function colorSaturdayRowsInBlue_(
+  sheet: GoogleAppsScript.Spreadsheet.Sheet = SpreadsheetApp.getActiveSheet(),
+) {
   conditionalFormat_('=WEEKDAY($A2)=7', '#C9DAF8', sheet);
 }
 
-function colorSundayRowsInRed_(sheet = SpreadsheetApp.getActiveSheet()) {
+function colorSundayRowsInRed_(
+  sheet: GoogleAppsScript.Spreadsheet.Sheet = SpreadsheetApp.getActiveSheet(),
+) {
   conditionalFormat_('=WEEKDAY($A2)=1', '#F4CCCC', sheet);
 }

@@ -27,7 +27,7 @@ function formatLegalDocument() {
     .setFontSize(12);
 }
 
-function convertMillimetersToPoints_(millimeters) {
+function convertMillimetersToPoints_(millimeters: number): number {
   const MILLIMETERS_IN_INCH = 25.4;
   const POINTS_IN_INCH = 72;
   const POINTS_IN_MILLIMETER = POINTS_IN_INCH / MILLIMETERS_IN_INCH;

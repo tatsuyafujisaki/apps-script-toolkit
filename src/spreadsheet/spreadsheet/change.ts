@@ -2,7 +2,7 @@ function setJapaneseLocale() {
   SpreadsheetApp.getActiveSpreadsheet().setSpreadsheetLocale('ja');
 }
 
-function freezeHeaderRow(sheet) {
+function freezeHeaderRow(sheet: GoogleAppsScript.Spreadsheet.Sheet) {
   sheet.setFrozenRows(1);
 }
 
