@@ -34,10 +34,12 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
 # Dependency directories
 node_modules/
 jspm_packages/
-build/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -90,9 +92,8 @@ dist
 # vuepress build output
 .vuepress/dist
 
-# vuepress v2.x temp and cache directory
+# vuepress v2.x temp directory
 .temp
-.cache
 
 # Sveltekit cache directory
 .svelte-kit/
@@ -123,6 +124,9 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# pnpm
+.pnpm-store
 
 # yarn v3
 .pnp.*
