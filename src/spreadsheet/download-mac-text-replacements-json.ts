@@ -18,7 +18,8 @@ function downloadMacTextReplacementsJson_(
     Utilities.Charset.UTF_8,
   );
 
-  const html = HtmlService.createHtmlOutput(`
+  const html = HtmlService.createHtmlOutput(
+    `
     <script>
       Object.assign(document.createElement('a'), {
         download: 'Text Substitutions.json',
@@ -26,7 +27,8 @@ function downloadMacTextReplacementsJson_(
       }).click();
       google.script.host.close();
     </script>
-  `)
+  `,
+  )
     .setWidth(1)
     .setHeight(1);
 

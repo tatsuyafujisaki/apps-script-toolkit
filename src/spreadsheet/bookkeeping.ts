@@ -1,33 +1,26 @@
-const specialSheetNames = ['まとめ', '勘定科目一覧', '勘定科目別合計額'];
+function sortSheets(
+  spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
+): void {
+  const sheets = spreadsheet.getSheets();
+  const prioritySheets = sheets.slice(0, 3);
+  const nonPrioritySheets = sheets.slice(3);
 
-function sortSheets_(spreadsheet = SpreadsheetApp.getActiveSpreadsheet()): void {
-  const prioritySheets = spreadsheet
-    .getSheets()
-    .filter(sheet => specialSheetNames.includes(sheet.getName()));
+  nonPrioritySheets.sort((a, b) => a.getName().localeCompare(b.getName()));
 
-  const nonPrioritySheets = spreadsheet
-    .getSheets()
-    .filter(sheet => !specialSheetNames.includes(sheet.getName()));
-
-  prioritySheets.forEach((sheet, index) => {
+  [...prioritySheets, ...nonPrioritySheets].forEach((sheet, index) => {
     spreadsheet.setActiveSheet(sheet);
     spreadsheet.moveActiveSheet(index + 1);
   });
-
-  nonPrioritySheets.sort((a, b) => a.getName().localeCompare(b.getName()));
-  nonPrioritySheets.forEach((sheet, index) => {
-    spreadsheet.setActiveSheet(sheet);
-    spreadsheet.moveActiveSheet(specialSheetNames.length + index + 1);
-  });
 }
 
-function printFormulaToBePastedOnConsolidatedSheet_(
+function printFormulaToBePastedOnConsolidatedSheet(
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
 ): void {
-  const sheetNames = spreadsheet
+  const nonPrioritySheetNames = spreadsheet
     .getSheets()
-    .map(sheet => sheet.getName())
-    .filter(sheetName => !specialSheetNames.includes(sheetName));
-  const result = formatArray_(sheetNames, '=SORT({', "'", ';', "'!A2:E", '})');
-  console.log(result);
+    .slice(3)
+    .map(sheet => sheet.getName());
+
+  const formula = `=SORT({${nonPrioritySheetNames.map(name => `'${name}'!A2:E`).join(';')}})`;
+  console.log(formula);
 }
