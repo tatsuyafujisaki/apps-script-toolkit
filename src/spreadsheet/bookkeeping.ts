@@ -1,9 +1,10 @@
 const specialSheetNames = ['まとめ', '勘定科目一覧', '勘定科目別合計額'];
 
-function sortSheets(spreadsheet = SpreadsheetApp.getActiveSpreadsheet()) {
+function sortSheets_(spreadsheet = SpreadsheetApp.getActiveSpreadsheet()): void {
   const prioritySheets = spreadsheet
     .getSheets()
     .filter(sheet => specialSheetNames.includes(sheet.getName()));
+
   const nonPrioritySheets = spreadsheet
     .getSheets()
     .filter(sheet => !specialSheetNames.includes(sheet.getName()));
@@ -20,9 +21,9 @@ function sortSheets(spreadsheet = SpreadsheetApp.getActiveSpreadsheet()) {
   });
 }
 
-function printFormulaToBePastedOnConsolidatedSheet(
+function printFormulaToBePastedOnConsolidatedSheet_(
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
-) {
+): void {
   const sheetNames = spreadsheet
     .getSheets()
     .map(sheet => sheet.getName())

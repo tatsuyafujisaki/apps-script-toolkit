@@ -1,6 +1,6 @@
-function iterateThroughCellsExample(
+function iterateThroughCellsExample_(
   range = SpreadsheetApp.getActiveSheet().getDataRange(),
-) {
+): void {
   console.log(range.getA1Notation());
   for (let row = 1; row <= range.getNumRows(); row++) {
     for (let column = 1; column <= range.getNumColumns(); column++) {

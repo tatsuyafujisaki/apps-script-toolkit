@@ -1,12 +1,12 @@
-function conditionalFormat_(
+function addConditionalFormatRule_(
   formula: string,
   color: string,
-  sheet: GoogleAppsScript.Spreadsheet.Sheet = SpreadsheetApp.getActiveSheet(),
-) {
+  sheet = SpreadsheetApp.getActiveSheet(),
+): void {
   const rules = sheet.getConditionalFormatRules();
   rules.push(
     SpreadsheetApp.newConditionalFormatRule()
-      .setRanges([getHeaderlessRange_(sheet)])
+      .setRanges([getRangeWithoutHeader_(sheet)])
       .whenFormulaSatisfied(formula)
       .setBackground(color)
       .build(),
