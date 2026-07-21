@@ -1,26 +1,27 @@
+const LEFTMOST_FIXED_SHEET_COUNT = 2;
+
 function sortSheets(
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
 ): void {
   const sheets = spreadsheet.getSheets();
-  const prioritySheets = sheets.slice(0, 3);
-  const nonPrioritySheets = sheets.slice(3);
+  const sortableSheets = sheets.slice(LEFTMOST_FIXED_SHEET_COUNT);
 
-  nonPrioritySheets.sort((a, b) => a.getName().localeCompare(b.getName()));
+  sortableSheets.sort((a, b) => a.getName().localeCompare(b.getName()));
 
-  [...prioritySheets, ...nonPrioritySheets].forEach((sheet, index) => {
+  sortableSheets.forEach((sheet, index) => {
     spreadsheet.setActiveSheet(sheet);
-    spreadsheet.moveActiveSheet(index + 1);
+    spreadsheet.moveActiveSheet(LEFTMOST_FIXED_SHEET_COUNT + index + 1);
   });
 }
 
-function printFormulaToBePastedOnConsolidatedSheet(
+function logFormulaToBePastedOnConsolidatedSheet(
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
 ): void {
-  const nonPrioritySheetNames = spreadsheet
+  const sortableSheetNames = spreadsheet
     .getSheets()
-    .slice(3)
+    .slice(LEFTMOST_FIXED_SHEET_COUNT)
     .map(sheet => sheet.getName());
 
-  const formula = `=SORT({${nonPrioritySheetNames.map(name => `'${name}'!A2:E`).join(';')}})`;
+  const formula = `=SORT({${sortableSheetNames.map(name => `'${name}'!A2:E`).join(';')}})`;
   console.log(formula);
 }
