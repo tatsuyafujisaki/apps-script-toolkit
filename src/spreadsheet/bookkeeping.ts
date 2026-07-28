@@ -22,6 +22,6 @@ function logFormulaToBePastedOnConsolidatedSheet(
     .slice(LEFTMOST_FIXED_SHEET_COUNT)
     .map(sheet => sheet.getName());
 
-  const formula = `=SORT({${sortableSheetNames.map(name => `'${name}'!A2:E`).join(';')}})`;
+  const formula = `=SORT({${sortableSheetNames.map(name => `'${name}'!A$2:E`).join(';')}})`;
   console.log(formula);
 }
