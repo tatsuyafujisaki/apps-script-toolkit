@@ -2,7 +2,6 @@
   "devDependencies": {
     "@types/google-apps-script": "latest",
     "@types/node": "latest",
-    "gts": "latest",
     "typescript": "latest"
   },
   "private": true
