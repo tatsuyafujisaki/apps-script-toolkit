@@ -1,4 +1,4 @@
-## How to convert JavaScript files to TypeScript files
+## How to convert TypeScript files to JavaScript files
 
 ```shell
 npx tsc
