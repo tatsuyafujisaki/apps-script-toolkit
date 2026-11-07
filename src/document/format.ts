@@ -1,4 +1,4 @@
-function formatLegalDocument() {
+function formatLegalDocument(): void {
   const TOP_MARGIN_MILLIMETERS = 35;
   const BOTTOM_MARGIN_MILLIMETERS = 27;
   const LEFT_MARGIN_MILLIMETERS = 30;

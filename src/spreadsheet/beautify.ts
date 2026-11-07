@@ -35,7 +35,7 @@ function wrap_(sheet = SpreadsheetApp.getActiveSheet()): void {
 
 function autoResizeAllColumnsAndRows_(
   sheet = SpreadsheetApp.getActiveSheet(),
-) {
+): void {
   sheet
     .autoResizeColumns(1, sheet.getLastColumn())
     .autoResizeRows(1, sheet.getLastRow());

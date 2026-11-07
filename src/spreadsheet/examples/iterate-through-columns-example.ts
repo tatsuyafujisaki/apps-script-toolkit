@@ -1,5 +1,5 @@
 function iterateThroughColumnsExample_(
-  sheet: GoogleAppsScript.Spreadsheet.Sheet = SpreadsheetApp.getActiveSheet(),
+  sheet = SpreadsheetApp.getActiveSheet(),
 ): void {
   const lastRow = sheet.getLastRow();
   const lastColumn = sheet.getLastColumn();
