@@ -1,8 +1,5 @@
 function capitalizeFirstLetter_(str: string): string {
-  if (typeof str === 'string' && str.length) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-  return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function formatArray_(
