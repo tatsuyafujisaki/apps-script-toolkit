@@ -1,5 +1,6 @@
-const sortSheetByColumns_ = (
+function sortSheetByColumns_(
   columnPositions: number[],
   sheet = SpreadsheetApp.getActiveSheet(),
-): void =>
+): void {
   columnPositions.forEach(columnPosition => sheet.sort(columnPosition));
+}

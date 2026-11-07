@@ -1,42 +1,42 @@
-const beautifySpreadsheet = (
+function beautifySpreadsheet(
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
-): void => {
+): void {
   for (const sheet of spreadsheet.getSheets()) {
     alignVerticallyMiddle_(sheet);
     setFont_(sheet);
     wrap_(sheet);
     autoResizeAllColumnsAndRows_(sheet);
   }
-};
+}
 
-const alignVerticallyMiddle_ = (
+function alignVerticallyMiddle_(
   sheet = SpreadsheetApp.getActiveSheet(),
-): void => {
+): void {
   sheet
     .getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns())
     .setVerticalAlignment('middle');
-};
+}
 
-const setFont_ = (
+function setFont_(
   sheet = SpreadsheetApp.getActiveSheet(),
   fontFamily = 'Arial',
-): void => {
+): void {
   sheet
     .getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns())
     .setFontFamily(fontFamily)
     .setFontSize(10);
-};
+}
 
-const wrap_ = (sheet = SpreadsheetApp.getActiveSheet()): void => {
+function wrap_(sheet = SpreadsheetApp.getActiveSheet()): void {
   sheet
     .getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns())
     .setWrapStrategy(SpreadsheetApp.WrapStrategy.WRAP);
-};
+}
 
-const autoResizeAllColumnsAndRows_ = (
+function autoResizeAllColumnsAndRows_(
   sheet = SpreadsheetApp.getActiveSheet(),
-) => {
+) {
   sheet
     .autoResizeColumns(1, sheet.getLastColumn())
     .autoResizeRows(1, sheet.getLastRow());
-};
+}

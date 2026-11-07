@@ -36,14 +36,14 @@ function fillDaysInColumnA_(
     .setNumberFormat('yyyy年m月d日(ddd)');
 }
 
-const colorSaturdayRowsInBlue_ = (
+function colorSaturdayRowsInBlue_(
   sheet = SpreadsheetApp.getActiveSheet(),
-): void => {
+): void {
   addConditionalFormatRule_('=WEEKDAY($A2)=7', '#C9DAF8', sheet);
-};
+}
 
-const colorSundayRowsInRed_ = (
+function colorSundayRowsInRed_(
   sheet = SpreadsheetApp.getActiveSheet(),
-): void => {
+): void {
   addConditionalFormatRule_('=WEEKDAY($A2)=1', '#F4CCCC', sheet);
-};
+}

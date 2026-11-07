@@ -6,11 +6,13 @@ function onOpen_(): void {
     .addToUi();
 }
 
-const alert_ = (message = '🔔'): void => {
+function alert_(message = '🔔'): void {
   SpreadsheetApp.getUi().alert(message);
-};
+}
 
-const toast_ = (
+function toast_(
   message = '🍞',
   spreadsheet = SpreadsheetApp.getActiveSpreadsheet(),
-): void => spreadsheet.toast(message);
+): void {
+  spreadsheet.toast(message);
+}

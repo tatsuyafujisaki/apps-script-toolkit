@@ -1,9 +1,9 @@
-const onOpen = (): void => {
+function onOpen(): void {
   SpreadsheetApp.getUi()
     .createMenu('🚀')
     .addItem('Download JSON', 'downloadMacTextReplacementsJson_')
     .addToUi();
-};
+}
 
 function downloadMacTextReplacementsJson_(
   range = SpreadsheetApp.getActiveSheet().getDataRange(),
