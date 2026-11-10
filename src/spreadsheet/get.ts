@@ -7,5 +7,5 @@ function getRange_(
 function getRangeWithoutHeader_(
   sheet = SpreadsheetApp.getActiveSheet(),
 ): GoogleAppsScript.Spreadsheet.Range {
-  return sheet.getRange('2:' + sheet.getLastRow());
+  return sheet.getRange(`2:${sheet.getLastRow()}`);
 }
