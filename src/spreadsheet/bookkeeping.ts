@@ -8,10 +8,10 @@ function sortSheets(
 
   sortableSheets.sort((a, b) => a.getName().localeCompare(b.getName()));
 
-  sortableSheets.forEach((sheet, index) => {
+  for (const [index, sheet] of sortableSheets.entries()) {
     spreadsheet.setActiveSheet(sheet);
     spreadsheet.moveActiveSheet(LEFTMOST_FIXED_SHEET_COUNT + index + 1);
-  });
+  }
 }
 
 function logFormulaToBePastedOnConsolidatedSheet(
